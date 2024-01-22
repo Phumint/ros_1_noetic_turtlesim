@@ -93,10 +93,10 @@ class TurtleBot:
 if __name__ == '__main__':
     try:
         x = TurtleBot()
-        x.move2goal(7.4,5.4)
-        x.move2goal(3.4,0.4)
+        x.move2goal(8.4,5.4)
+        x.move2goal(3.4,1.4)
         x.move2goal(5.4,7.4)
-        x.move2goal(7.4,0.4)
+        x.move2goal(6.4,0.4)
         x.move2goal(3.4,5.4)
         x.move2goal(5.4,5.4)
         rospy.spin()
