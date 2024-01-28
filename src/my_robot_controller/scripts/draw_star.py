@@ -36,7 +36,7 @@ class TurtleBot:
         return sqrt(pow((goal_pose.x - self.pose.x), 2) +
                     pow((goal_pose.y - self.pose.y), 2))
 
-    def linear_vel(self, goal_pose, constant=1.5):
+    def linear_vel(self, goal_pose, constant=1):
         """See video: https://www.youtube.com/watch?v=Qh15Nol5htM."""
         return constant * self.euclidean_distance(goal_pose)
 
@@ -44,7 +44,8 @@ class TurtleBot:
         """See video: https://www.youtube.com/watch?v=Qh15Nol5htM."""
         return atan2(goal_pose.y - self.pose.y, goal_pose.x - self.pose.x)
 
-    def angular_vel(self, goal_pose, constant=13):
+
+    def angular_vel(self, goal_pose, constant=12):
         """See video: https://www.youtube.com/watch?v=Qh15Nol5htM."""
         return constant * (self.steering_angle(goal_pose) - self.pose.theta)
 
@@ -88,17 +89,17 @@ class TurtleBot:
         self.velocity_publisher.publish(vel_msg)
 
         # If we press control + C, the node will stop.
-        
+        #rospy.spin()
 
 if __name__ == '__main__':
     try:
         x = TurtleBot()
-        x.move2goal(8.4,5.4)
+        x.move2goal(7.4,5.4)
         x.move2goal(3.4,1.4)
         x.move2goal(5.4,7.4)
-        x.move2goal(6.4,0.4)
-        x.move2goal(3.4,5.4)
-        x.move2goal(5.4,5.4)
+        x.move2goal(6.4,1.4)
+        x.move2goal(3.4,5.7)
+        x.move2goal(6.4,5.4)
         rospy.spin()
     except rospy.ROSInterruptException:
         pass
